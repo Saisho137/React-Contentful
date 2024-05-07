@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     getProducts().then((response) => {
       response && setProducts(response)
-      console.log(response);
+      //console.log(response);
     });
   });
 
@@ -37,6 +37,7 @@ function App() {
   return (
     <>
       <Header />
+      {products.length === 0 && <h2>Loading...</h2>}
       <section className='products__layout'>
         {products.map((product, index) => (
           <ProductCard key={index} product={product} />
