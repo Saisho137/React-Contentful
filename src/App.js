@@ -8,13 +8,14 @@ function App() {
   const [products, setProducts] = useState([]);
   const { getProducts } = useContentful();
 
-  /* useEffect(() => {
+  useEffect(() => {
     getProducts().then((response) => {
       response && setProducts(response)
       console.log(response);
     });
-  }); */
+  });
 
+  /* 
   const product = [{
     name: "Caramel Flan",
     description: "Basically a Flan, but caramelized.",
@@ -31,14 +32,22 @@ function App() {
         }
       },
     },
-  }]
+  }] */
 
   return (
     <>
       <Header />
-      {product.map((product, index) => (
-        <ProductCard key={index} product={product} />
-      ))}
+      <section className='products__layout'>
+        {products.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
+        {products.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
+        {products.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
+      </section>
     </>
   );
 }
